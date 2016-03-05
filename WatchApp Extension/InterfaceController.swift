@@ -23,6 +23,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     var session:WCSession!
     var level:Int!
+    let locationManager = CLLocationManager()
     
     
     override func awakeWithContext(context: AnyObject?) {
@@ -39,6 +40,28 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             self.session.delegate = self
             self.session.activateSession()
         }
+        
+        // Get user current location 
+        // Ask for Authorisation from the User.
+//        self.locationManager.requestAlwaysAuthorization()
+//        
+//        // For use in foreground
+//        self.locationManager.requestWhenInUseAuthorization()
+//        
+//        if CLLocationManager.locationServicesEnabled() {
+//            locationManager.delegate = self
+//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//            locationManager.startUpdatingLocation()
+//        }
+        
+        
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        var userLocation:CLLocation = locations[0] as! CLLocation
+        let long = userLocation.coordinate.longitude;
+        let lat = userLocation.coordinate.latitude;
+        //Do What ever you want with it
     }
 
     override func didDeactivate() {
