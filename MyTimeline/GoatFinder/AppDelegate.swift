@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let realm = try! Realm()
         
-        print("We have \(realm.objects(Goat).count) goats")
+        print("We have \(realm.objects(Activity).count) activities")
         
         return true
     }

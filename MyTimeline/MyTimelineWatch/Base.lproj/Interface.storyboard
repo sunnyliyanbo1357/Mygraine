@@ -10,16 +10,17 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="MyTimelineWatch" customModuleProvider="target">
                     <items>
-                        <label alignment="left" text="Label" id="sPc-vV-1LM"/>
-                        <label alignment="left" text="Pain Level 1" id="BBj-jZ-0SK"/>
-                        <slider width="1" alignment="left" value="1" maximum="4" steps="4" id="fLF-KY-3si">
+                        <label height="19.5" alignment="left" text="Last Migraine" id="sPc-vV-1LM"/>
+                        <label alignment="left" text="Pain Level 0" id="BBj-jZ-0SK"/>
+                        <slider width="1" alignment="left" maximum="10" steps="10" id="fLF-KY-3si">
                             <color key="color" red="0.74509803919999995" green="0.87843137250000003" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="sliderDidChange:" destination="AgC-eL-Hgc" id="rl8-z8-HdA"/>
                             </connections>
                         </slider>
-                        <button width="1" height="56.5" alignment="left" title="Migraine Start" id="TN0-NB-FJY">
-                            <color key="backgroundColor" red="0.74509803919999995" green="0.87843137250000003" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <button width="1" height="66.5" alignment="left" title="Migraine Start" id="TN0-NB-FJY">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="0.37254901960784315" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="sendFromWatch" destination="AgC-eL-Hgc" id="ToM-q3-YQI"/>
                             </connections>
@@ -32,7 +33,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="235" y="336"/>
+            <point key="canvasLocation" x="235" y="341"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">

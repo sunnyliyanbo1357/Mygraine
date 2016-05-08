@@ -47,7 +47,12 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     }
     
     @IBAction func sendFromWatch() {
-        let date = NSDate()
+        //let date = NSDate()
+        let dateFormatter = NSDateFormatter()
+        //the "M/d/yy, H:mm" is put together from the Symbol Table
+        dateFormatter.dateFormat = "M/d/yy H:mm"
+        let date = dateFormatter.stringFromDate(NSDate())
+        
         if(WCSession.isSupported()){
             //session.sendMessage(["migraineDate": String(date)], replyHandler: nil, errorHandler: nil)
             session.sendMessage(["migraineLevel":String(level)], replyHandler: nil, errorHandler: nil)
@@ -61,7 +66,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         //        }
         
         //        task.resume()
-        NSLog("Date: "+String(date)+"Level: "+String(level))
+        self.messageLabel.setText(String(date)+" Level "+String(level))
+        NSLog("Date: "+String(date)+" Level: "+String(level))
         
     }
     @IBAction func sliderDidChange(value: Int) {

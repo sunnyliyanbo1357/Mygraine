@@ -55,18 +55,18 @@ class TableViewController: UITableViewController, WCSessionDelegate{
         //        })
         dispatch_async(dispatch_get_main_queue(), {
 
-        let goat = Goat()
+        let activity = Activity()
         //let date = NSDate()
         
         let realm = try! Realm()
         try! realm.write {
-            goat.name = "migraine"
-            goat.age = (message["migraineLevel"]! as? String)!
+            activity.name = "migraine"
+            activity.level = (message["migraineLevel"]! as? String)!
             //goat.age = String(date)
-            realm.add(goat, update: true)
+            realm.add(activity, update: true)
         }
         
-        print("We have \(realm.objects(Goat).count) records")
+//        print("We have \(realm.objects(Activity).count) records")
         })
         dismissViewControllerAnimated(true, completion: nil)
         
@@ -94,17 +94,17 @@ class TableViewController: UITableViewController, WCSessionDelegate{
         
         let realm = try! Realm()
         
-        return realm.objects(Goat).count
+        return realm.objects(Activity).count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! CellView
         
         let realm = try! Realm()
-        let goats = realm.objects(Goat)
-        let goat = goats[indexPath.row]
+        let activities = realm.objects(Activity)
+        let activity = activities[indexPath.row]
     
-        cell.goat = goat
+        cell.activity = activity
     
         return cell
     }
@@ -158,6 +158,6 @@ class TableViewController: UITableViewController, WCSessionDelegate{
         let cell = sender as! CellView
         
         let vc = segue.destinationViewController as! ViewController
-        vc.goat = cell.goat
+        vc.activity = cell.activity
     }
 }

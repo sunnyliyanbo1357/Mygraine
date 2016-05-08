@@ -19,11 +19,11 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SJu-fD-sH4" id="ds3-1g-OL4">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="249.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g25-Ih-hw2">
-                                            <rect key="frame" x="0.0" y="8" width="600" height="249.5"/>
+                                            <rect key="frame" x="0.0" y="8" width="600" height="250"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9B3-Uc-Jeq">
                                             <rect key="frame" x="175" y="74" width="250" height="47"/>
@@ -37,7 +37,7 @@
                                             <nil key="highlightedColor"/>
                                             <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time/Severity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vN-LZ-auo">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time/Severity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vN-LZ-auo">
                                             <rect key="frame" x="232" y="171" width="135" height="27"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.22101984797297297" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>

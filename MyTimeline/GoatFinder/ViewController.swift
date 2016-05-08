@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITextFieldDelegate, WCSessionDelegate{
     
     @IBOutlet weak var saveButton: UIButton!
     
-    var goat = Goat()
+    var activity = Activity()
     var session: WCSession!
     
     override func viewDidLoad() {
@@ -29,8 +29,8 @@ class ViewController: UIViewController, UITextFieldDelegate, WCSessionDelegate{
         nameTextField.delegate = self
         ageTextField.delegate = self
 
-        nameTextField.text = goat.name
-        ageTextField.text = "\(goat.age)"
+        nameTextField.text = activity.name
+        ageTextField.text = "\(activity.level)"
         
         if(WCSession.isSupported()){
             self.session = WCSession.defaultSession()
@@ -53,16 +53,16 @@ class ViewController: UIViewController, UITextFieldDelegate, WCSessionDelegate{
         
         //session.sendMessage(["Update":"Updated!"], replyHandler: nil, errorHandler: nil)
 
-        let goat = Goat()
+        let activity = Activity()
         
         let realm = try! Realm()
         try! realm.write {
-            goat.name = nameTextField.text!
-            goat.age = ageTextField.text!
+            activity.name = nameTextField.text!
+            activity.level = ageTextField.text!
 //            goat.age = Int(ageTextField.text!)!
-            realm.add(goat, update: true)
+            realm.add(activity, update: true)
         }
-        print("We have \(realm.objects(Goat).count) records")
+        print("We have \(realm.objects(Activity).count) records")
         
         //session.sendMessage(["update":"Timeline Updated!"], replyHandler: nil, errorHandler: nil)
  

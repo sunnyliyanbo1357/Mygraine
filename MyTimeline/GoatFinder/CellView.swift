@@ -14,11 +14,11 @@ class CellView: UITableViewCell {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var bkImageView: UIImageView!
     
-    var goat : Goat! {
+    var activity : Activity! {
         didSet {
-            nameLabel.text = goat.name
-            ageLabel.text = "\(goat.age)"
-            bkImageView.image = UIImage(named: goat.name)
+            nameLabel.text = activity.name
+            ageLabel.text = "\(activity.level)"
+            bkImageView.image = UIImage(named: activity.name)
         }
     }
 }
