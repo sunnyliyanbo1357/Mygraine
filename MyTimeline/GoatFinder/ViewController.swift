@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  GoatFinder
+//  MyTimeline
 //
 //  Created by Yanbo Li on 3/3/16.
 //  Copyright © 2016 Yanbo Li. All rights reserved.
@@ -50,8 +50,6 @@ class ViewController: UIViewController, UITextFieldDelegate, WCSessionDelegate{
     
     // MARK: - Actions
     @IBAction func saveButtonClicked(sender: AnyObject) {
-        
-        //session.sendMessage(["Update":"Updated!"], replyHandler: nil, errorHandler: nil)
 
         let activity = Activity()
         
@@ -59,19 +57,21 @@ class ViewController: UIViewController, UITextFieldDelegate, WCSessionDelegate{
         try! realm.write {
             activity.name = nameTextField.text!
             activity.level = ageTextField.text!
-//            goat.age = Int(ageTextField.text!)!
-            realm.add(activity, update: true)
+            //activity.time = String(NSDate())
+            //realm.add(activity, update: true)
         }
         print("We have \(realm.objects(Activity).count) records")
         
         //session.sendMessage(["update":"Timeline Updated!"], replyHandler: nil, errorHandler: nil)
  
+        //navigationController?.popViewControllerAnimated(true)
         
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func cancelButtonClicked(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
+        //navigationController?.popViewControllerAnimated(true)
     }
     
     // MARK: - Dismissing the keyboard

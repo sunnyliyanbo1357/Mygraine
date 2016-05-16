@@ -1,6 +1,6 @@
 //
 //  MapViewController.swift
-//  GoatFinder
+//  MyTimeline
 //
 //  Created by Yanbo Li on 3/3/16.
 //  Copyright © 2016 Yanbo Li. All rights reserved.
@@ -16,9 +16,21 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: RealmMapView!
     
     var token : NotificationToken?
-    
+//    
+//    var locationManager = CLLocationManager()
+//    
+//    func checkLocationAuthorizationStatus() {
+//        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+//            mapView.showsUserLocation = true
+//        } else {
+//            locationManager.requestWhenInUseAuthorization()
+//        }
+//    }
+//    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        checkLocationAuthorizationStatus()
         
         let realm = try! Realm()
         token = realm.addNotificationBlock { (notification, realm) -> Void in
@@ -43,19 +55,5 @@ class MapViewController: UIViewController {
     */
     
     // MARK: - location manager to authorize user location for Maps app
-    var locationManager = CLLocationManager()
-    
-    func checkLocationAuthorizationStatus() {
-        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
-            mapView.showsUserLocation = true
-        } else {
-            locationManager.requestWhenInUseAuthorization()
-        }
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        checkLocationAuthorizationStatus()
-    }
 
 }

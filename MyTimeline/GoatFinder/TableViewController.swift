@@ -1,6 +1,6 @@
 //
 //  TableViewController.swift
-//  GoatFinder
+//  MyTimeline
 //
 //  Created by Yanbo Li on 3/3/16.
 //  Copyright © 2016 Yanbo Li. All rights reserved.
@@ -21,6 +21,7 @@ class TableViewController: UITableViewController, WCSessionDelegate{
         //realm token
         let realm = try! Realm()
         token = realm.addNotificationBlock({ (notification, realm) -> Void in
+            print("should reload table")
             self.tableView.reloadData()
         })
         
@@ -62,15 +63,28 @@ class TableViewController: UITableViewController, WCSessionDelegate{
         try! realm.write {
             activity.name = "migraine"
             activity.level = (message["migraineLevel"]! as? String)!
-            //goat.age = String(date)
+            //activity.time = String(NSDate())
             realm.add(activity, update: true)
         }
         
-//        print("We have \(realm.objects(Activity).count) records")
+//         print("We have \(realm.objects(Activity).count) records")
         })
-        dismissViewControllerAnimated(true, completion: nil)
+      //  dismissViewControllerAnimated(true, completion: nil)
         
     }
+    
+    
+//    func deleteRowAtIndexPath(indexPath: NSIndexPath) {
+//        let realm = RLMRealm.defaultRealm() //1
+//        let objectToDelete = activities[UInt(indexPath.row)] as Activity //2
+//        realm.beginWriteTransaction() //3
+//        realm.deleteObject(objectToDelete) //4
+//        realm.commitWriteTransaction() //5
+//        
+//        activities = Activity.allObjects().arraySortedByProperty("time", ascending: true) //6
+//        
+//        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade) //7
+//    }
 
 
     func insertNewObject(sender: AnyObject) {
@@ -80,9 +94,10 @@ class TableViewController: UITableViewController, WCSessionDelegate{
         //        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         
-        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("editView") as UIViewController
+        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("addView") as UIViewController
         self.presentViewController(nextViewController, animated:true, completion:nil)
     }
+    
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

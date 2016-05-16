@@ -1,9 +1,9 @@
 //
 //  CellView.swift
-//  GoatFinder
+//  MyTimeline
 //
-//  Created by Daniel Hauagge on 3/3/16.
-//  Copyright © 2016 Daniel Hauagge. All rights reserved.
+//  Created by Yanbo Li on 3/3/16.
+//  Copyright © 2016 Yanbo Li. All rights reserved.
 //
 
 import UIKit

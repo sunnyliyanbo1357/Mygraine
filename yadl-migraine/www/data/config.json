@@ -1,0 +1,83 @@
+{
+	"assetsUrl": "img",
+	"reminders": {
+		"monthly": "19",
+		"daily": "19"
+	},
+	"surveys":{
+		"monthly":{
+			"prompt": "Did you miss this activity because of migraine?",
+			"responses": [
+				{
+					"text": "Never/Not applicable",
+					"color": "balanced",
+					"store": false
+				},
+				{
+					"text": "Possible",
+					"color": "energized",
+					"store": true
+				},
+				{
+					"text": "Happened",
+					"color": "assertive",
+					"store": true
+				}
+			]
+		},
+		"daily":{
+			"promp": "Which activities did you miss because of your headache?"
+		}
+	},
+	"data": [
+		{
+			"title": "School",
+			"file":"school.jpg"
+		},
+		{
+			"title":"Work",
+			"file":"work.jpg"
+		},
+		{
+			"title":"Reduced productivity",
+			"file":"workproductivity.jpg"
+		},
+		{
+			"title":"Housework",
+			"file":"housework.jpg"
+		},
+		{
+			"title":"Home repairs and maintenance",
+			"file":"homerepairs.jpg"
+		},
+		{
+			"title":"Shopping",
+			"file":"shopping.jpg"
+		},
+		{
+			"title":"Caring for children",
+			"file":"caringchildren.jpg"
+		},
+		{
+			"title":"Caring for relatives",
+			"file":"caringrelatives.jpg"
+		},
+		{
+			"title":"Reduced household productivity",
+			"file":"houseproductivity.jpg"
+		},
+		{
+			"title":"Family activities",
+			"file":"family.jpg"
+		},
+		{
+			"title":"Socializing",
+			"file":"social.jpg"
+		},
+		{
+			"title":"Leisure activities",
+			"file":"leisure.jpg"
+		}
+	]
+
+}

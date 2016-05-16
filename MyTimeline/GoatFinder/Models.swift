@@ -1,9 +1,9 @@
 //
 //  Models.swift
-//  GoatFinder
+//  MyTimeline
 //
 //  Created by Yanbo Li on 3/3/16.
-//  Copyright © 2016 Daniel Hauagge. All rights reserved.
+//  Copyright © 2016 Yanbo Li. All rights reserved.
 //
 
 import RealmSwift
@@ -16,6 +16,7 @@ func rand() -> Double
 class Activity : Object {
     dynamic var id = NSUUID().UUIDString
     dynamic var name = ""
+    //dynamic var time = "" //created date and time
     dynamic var level = "" //age
 //    dynamic var latitude: Double = 0.0
 //    dynamic var longtitude: Double = 0.0

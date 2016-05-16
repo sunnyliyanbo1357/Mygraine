@@ -1,0 +1,48 @@
+body {
+    background-color: white;
+    text-align: center;
+}
+h1 {
+    color: #666666;
+    text-align: center;
+    font-size: 36px;
+    font-weight: lighter;
+}
+p {
+    font-family: "Times New Roman";
+    font-size: 20px;
+}
+
+body {
+  font: 10px sans-serif;
+  shape-rendering: crispEdges;
+}
+
+.day {
+  fill: #fff;
+  stroke: #ccc;
+}
+
+.month {
+  fill: none;
+  stroke: #000;
+  stroke-width: 0.7px;
+}
+
+.header {
+  font-size: 24px;
+  color: #AAA;
+  fill: #AAA;
+}
+
+.RdYlGn .q9-11{fill:#000000}
+.RdYlGn .q8-11{fill:#081d58}
+.RdYlGn .q7-11{fill:#253494}
+.RdYlGn .q6-11{fill:#225ea8}
+.RdYlGn .q5-11{fill:#1d91c0}
+.RdYlGn .q4-11{fill:#41b6c4}
+.RdYlGn .q3-11{fill:#7fcdbb}
+.RdYlGn .q2-11{fill:#c7e9b4}
+.RdYlGn .q1-11{fill:#edf8b1}
+.RdYlGn .q0-11{fill:#ffffd9}
+

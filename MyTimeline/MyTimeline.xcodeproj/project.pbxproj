@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1ED0D7489C172220C5D1B87E /* Pods_MyTimeline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B2EB9A4B2CB905D212C6D2 /* Pods_MyTimeline.framework */; };
+		583A4BEB1CE0144C005D8F4A /* addViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583A4BEA1CE0144C005D8F4A /* addViewController.swift */; };
 		586DB5FC1CBCBE59008BC601 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 586DB5FA1CBCBE59008BC601 /* Interface.storyboard */; };
 		586DB5FE1CBCBE59008BC601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 586DB5FD1CBCBE59008BC601 /* Assets.xcassets */; };
 		586DB6051CBCBE59008BC601 /* MyTimelineWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 586DB6041CBCBE59008BC601 /* MyTimelineWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -18,6 +19,7 @@
 		586DB6141CBCBE59008BC601 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586DB6131CBCBE59008BC601 /* ComplicationController.swift */; };
 		586DB6161CBCBE59008BC601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 586DB6151CBCBE59008BC601 /* Assets.xcassets */; };
 		586DB61A1CBCBE59008BC601 /* MyTimelineWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 586DB5F81CBCBE59008BC601 /* MyTimelineWatch.app */; };
+		58F76C961CE9AEDB006C0C42 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F76C951CE9AEDB006C0C42 /* WebViewController.swift */; };
 		6529BB391C88FEA2009B9D72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529BB381C88FEA2009B9D72 /* AppDelegate.swift */; };
 		6529BB3B1C88FEA2009B9D72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529BB3A1C88FEA2009B9D72 /* ViewController.swift */; };
 		6529BB3E1C88FEA2009B9D72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6529BB3C1C88FEA2009B9D72 /* Main.storyboard */; };
@@ -72,6 +74,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		583A4BEA1CE0144C005D8F4A /* addViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addViewController.swift; sourceTree = "<group>"; };
 		586DB5F81CBCBE59008BC601 /* MyTimelineWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTimelineWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		586DB5FB1CBCBE59008BC601 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		586DB5FD1CBCBE59008BC601 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +89,7 @@
 		586DB6151CBCBE59008BC601 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		586DB6171CBCBE59008BC601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58E1C3B41CDA531A000E40FA /* MyTimelineWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "MyTimelineWatch Extension.entitlements"; sourceTree = "<group>"; };
+		58F76C951CE9AEDB006C0C42 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		6529BB351C88FEA2009B9D72 /* MyTimeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTimeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6529BB381C88FEA2009B9D72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6529BB3A1C88FEA2009B9D72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -193,12 +197,14 @@
 				6529BB501C8927A8009B9D72 /* MapViewController.swift */,
 				6529BB4A1C89097D009B9D72 /* Models.swift */,
 				6529BB3A1C88FEA2009B9D72 /* ViewController.swift */,
+				583A4BEA1CE0144C005D8F4A /* addViewController.swift */,
 				6529BB3C1C88FEA2009B9D72 /* Main.storyboard */,
 				6529BB4E1C89111C009B9D72 /* TableViewController.swift */,
 				6529BB4C1C890E71009B9D72 /* CellView.swift */,
 				6529BB3F1C88FEA2009B9D72 /* Assets.xcassets */,
 				6529BB411C88FEA2009B9D72 /* LaunchScreen.storyboard */,
 				6529BB441C88FEA2009B9D72 /* Info.plist */,
+				58F76C951CE9AEDB006C0C42 /* WebViewController.swift */,
 			);
 			name = MyTimeline;
 			path = GoatFinder;
@@ -415,12 +421,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				583A4BEB1CE0144C005D8F4A /* addViewController.swift in Sources */,
 				6529BB4D1C890E71009B9D72 /* CellView.swift in Sources */,
 				6529BB511C8927A8009B9D72 /* MapViewController.swift in Sources */,
 				6529BB4B1C89097D009B9D72 /* Models.swift in Sources */,
 				6529BB3B1C88FEA2009B9D72 /* ViewController.swift in Sources */,
 				6529BB4F1C89111C009B9D72 /* TableViewController.swift in Sources */,
 				6529BB391C88FEA2009B9D72 /* AppDelegate.swift in Sources */,
+				58F76C961CE9AEDB006C0C42 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
