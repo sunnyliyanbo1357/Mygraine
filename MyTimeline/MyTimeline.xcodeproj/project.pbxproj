@@ -20,6 +20,7 @@
 		586DB6161CBCBE59008BC601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 586DB6151CBCBE59008BC601 /* Assets.xcassets */; };
 		586DB61A1CBCBE59008BC601 /* MyTimelineWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 586DB5F81CBCBE59008BC601 /* MyTimelineWatch.app */; };
 		58F76C961CE9AEDB006C0C42 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F76C951CE9AEDB006C0C42 /* WebViewController.swift */; };
+		58F76C981CE9B843006C0C42 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F76C971CE9B843006C0C42 /* MapKit.framework */; };
 		6529BB391C88FEA2009B9D72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529BB381C88FEA2009B9D72 /* AppDelegate.swift */; };
 		6529BB3B1C88FEA2009B9D72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529BB3A1C88FEA2009B9D72 /* ViewController.swift */; };
 		6529BB3E1C88FEA2009B9D72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6529BB3C1C88FEA2009B9D72 /* Main.storyboard */; };
@@ -90,6 +91,7 @@
 		586DB6171CBCBE59008BC601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58E1C3B41CDA531A000E40FA /* MyTimelineWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "MyTimelineWatch Extension.entitlements"; sourceTree = "<group>"; };
 		58F76C951CE9AEDB006C0C42 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		58F76C971CE9B843006C0C42 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6529BB351C88FEA2009B9D72 /* MyTimeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTimeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6529BB381C88FEA2009B9D72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6529BB3A1C88FEA2009B9D72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58F76C981CE9B843006C0C42 /* MapKit.framework in Frameworks */,
 				1ED0D7489C172220C5D1B87E /* Pods_MyTimeline.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +216,7 @@
 		D5530E9A516BDE13D4BB4D23 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				58F76C971CE9B843006C0C42 /* MapKit.framework */,
 				A9B2EB9A4B2CB905D212C6D2 /* Pods_MyTimeline.framework */,
 			);
 			name = Frameworks;
@@ -303,6 +307,11 @@
 					6529BB341C88FEA2009B9D72 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 8396G73H5N;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};

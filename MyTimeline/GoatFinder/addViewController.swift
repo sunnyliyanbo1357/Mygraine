@@ -17,8 +17,8 @@ class addViewController: UIViewController, UITextFieldDelegate, WCSessionDelegat
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var ageTextField: UITextField!
-    
-    @IBOutlet weak var saveButton: UIButton!
+
+    @IBOutlet var saveButton: UIBarButtonItem!
     
     var activity = Activity()
     var session: WCSession!
@@ -31,6 +31,8 @@ class addViewController: UIViewController, UITextFieldDelegate, WCSessionDelegat
         
         nameTextField.text = activity.name
         ageTextField.text = "\(activity.level)"
+        
+        checkValidActivityName()
         
         if(WCSession.isSupported()){
             self.session = WCSession.defaultSession()
@@ -47,34 +49,53 @@ class addViewController: UIViewController, UITextFieldDelegate, WCSessionDelegat
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if saveButton === sender {
+            let activity = Activity()
+            
+            let realm = try! Realm()
+            try! realm.write {
+                activity.name = nameTextField.text!
+                activity.level = ageTextField.text!
+                //activity.time = String(NSDate())
+                realm.add(activity, update: true)
+            }
+
+        }
+    }
     
     // MARK: - Actions
-    @IBAction func saveButtonClicked(sender: AnyObject) {
-        
-        //session.sendMessage(["Update":"Updated!"], replyHandler: nil, errorHandler: nil)
-        
-        let activity = Activity()
-        
-        let realm = try! Realm()
-        try! realm.write {
-            activity.name = nameTextField.text!
-            activity.level = ageTextField.text!
-            //activity.time = String(NSDate())
-            realm.add(activity, update: true)
-        }
-        print("We have \(realm.objects(Activity).count) records")
-        
-        //session.sendMessage(["update":"Timeline Updated!"], replyHandler: nil, errorHandler: nil)
-        
-        //navigationController?.popToRootViewControllerAnimated(true)
-        //self.navigationController!.popViewControllerAnimated(true)
-        
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    @IBAction func cancelButtonClicked(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
+//    @IBAction func saveButtonClicked(sender: AnyObject) {
+//        
+//        //session.sendMessage(["Update":"Updated!"], replyHandler: nil, errorHandler: nil)
+//        
+//        let activity = Activity()
+//        
+//        let realm = try! Realm()
+//        try! realm.write {
+//            activity.name = nameTextField.text!
+//            activity.level = ageTextField.text!
+//            //activity.time = String(NSDate())
+//            realm.add(activity, update: true)
+//        }
+//        print("We have \(realm.objects(Activity).count) records")
+//        
+//        //session.sendMessage(["update":"Timeline Updated!"], replyHandler: nil, errorHandler: nil)
+//        
+//        //navigationController?.popToRootViewControllerAnimated(true)
+//        self.navigationController!.popViewControllerAnimated(true)
+//        
+//        //dismissViewControllerAnimated(true, completion: nil)
+//    }
+//    
+//    @IBAction func cancelButtonClicked(sender: AnyObject) {
+//        dismissViewControllerAnimated(true, completion: nil)
+//    }
     
     // MARK: - Dismissing the keyboard
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -87,29 +108,42 @@ class addViewController: UIViewController, UITextFieldDelegate, WCSessionDelegat
         ageTextField.resignFirstResponder()
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(textField: UITextField) {
+        // Disable the Save button while editing.
+        saveButton.enabled = false
     }
     
-       func textChanged(sender: NSNotification) {
-        // Find out what the text field will be after adding the current edit
-            //let nametext = (nameTextField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
-            //let agetext = (ageTextField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
+    func checkValidActivityName() {
+        // Disable the Save button if the text field is empty.
+        let text = nameTextField.text ?? ""
+        saveButton.enabled = !text.isEmpty
+    }
     
-        if nameTextField.hasText() && ageTextField.hasText() {
-            if let _ = Int(ageTextField.text!) {
-                // Text field converted to an Int
+    func textFieldDidEndEditing(textField: UITextField) {
+        checkValidActivityName()
+        navigationItem.title = nameTextField.text
+    }
     
-                saveButton.enabled = true
-    
-            } else {
-                // Text field is not an Int
-                saveButton.enabled = false
-            }} else {
-                // Text field is empty
-                saveButton.enabled = false
-            }
-        
-        
-        }
+//       func textChanged(sender: NSNotification) {
+//        // Find out what the text field will be after adding the current edit
+//            //let nametext = (nameTextField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
+//            //let agetext = (ageTextField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
+//    
+//        if nameTextField.hasText() && ageTextField.hasText() {
+//            if let _ = Int(ageTextField.text!) {
+//                // Text field converted to an Int
+//    
+//                saveButton.enabled = true
+//    
+//            } else {
+//                // Text field is not an Int
+//                saveButton.enabled = false
+//            }} else {
+//                // Text field is empty
+//                saveButton.enabled = false
+//            }
+//        
+//        
+//        }
 }
 

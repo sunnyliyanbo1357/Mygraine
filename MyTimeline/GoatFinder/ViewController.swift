@@ -64,9 +64,9 @@ class ViewController: UIViewController, UITextFieldDelegate, WCSessionDelegate{
         
         //session.sendMessage(["update":"Timeline Updated!"], replyHandler: nil, errorHandler: nil)
  
-        //navigationController?.popViewControllerAnimated(true)
+        navigationController?.popViewControllerAnimated(true)
         
-        dismissViewControllerAnimated(true, completion: nil)
+        //dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func cancelButtonClicked(sender: AnyObject) {

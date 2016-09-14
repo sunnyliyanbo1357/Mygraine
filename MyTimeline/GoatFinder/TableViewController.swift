@@ -15,11 +15,16 @@ class TableViewController: UITableViewController, WCSessionDelegate{
     var token : NotificationToken?
     var session: WCSession!
     
+    let realm = try! Realm()
+    //lazy var activities: Results<Activity> = { self.realm.objects(Activity) }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(Realm.Configuration.defaultConfiguration.path!)
+        
         //realm token
-        let realm = try! Realm()
+        //let realm = try! Realm()
         token = realm.addNotificationBlock({ (notification, realm) -> Void in
             print("should reload table")
             self.tableView.reloadData()
@@ -28,7 +33,7 @@ class TableViewController: UITableViewController, WCSessionDelegate{
         //add navigation bar and add button
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(TableViewController.insertNewObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
-        
+//
         //connect Apple Watch
         if(WCSession.isSupported()){
             self.session = WCSession.defaultSession()
@@ -59,33 +64,15 @@ class TableViewController: UITableViewController, WCSessionDelegate{
         let activity = Activity()
         //let date = NSDate()
         
-        let realm = try! Realm()
-        try! realm.write {
+        //let realm = try! Realm()
+        try! self.realm.write {
             activity.name = "migraine"
             activity.level = (message["migraineLevel"]! as? String)!
             //activity.time = String(NSDate())
-            realm.add(activity, update: true)
-        }
-        
-//         print("We have \(realm.objects(Activity).count) records")
+            self.realm.add(activity, update: true)
+            }
         })
-      //  dismissViewControllerAnimated(true, completion: nil)
-        
     }
-    
-    
-//    func deleteRowAtIndexPath(indexPath: NSIndexPath) {
-//        let realm = RLMRealm.defaultRealm() //1
-//        let objectToDelete = activities[UInt(indexPath.row)] as Activity //2
-//        realm.beginWriteTransaction() //3
-//        realm.deleteObject(objectToDelete) //4
-//        realm.commitWriteTransaction() //5
-//        
-//        activities = Activity.allObjects().arraySortedByProperty("time", ascending: true) //6
-//        
-//        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade) //7
-//    }
-
 
     func insertNewObject(sender: AnyObject) {
         // Push add button and redirect to the edit view
@@ -106,43 +93,56 @@ class TableViewController: UITableViewController, WCSessionDelegate{
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        
-        let realm = try! Realm()
-        
+        //self.tableView.reloadData()
+        //let realm = try! Realm()
         return realm.objects(Activity).count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! CellView
-        
-        let realm = try! Realm()
         let activities = realm.objects(Activity)
         let activity = activities[indexPath.row]
-    
         cell.activity = activity
-    
         return cell
     }
     
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            self.tableView.beginUpdates()
+            let activities = self.realm.objects(Activity)
+            let objectToDelete = activities[indexPath.row] as Activity
+            try! self.realm.write {
+                self.realm.delete(objectToDelete)
+                }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            //self.tableView.reloadData()
+            self.tableView.endUpdates()
+            
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
+    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+        self.tableView.reloadData()
+        //if let sourceViewController = sender.sourceViewController as? addViewController{
+            // Add a new meal.
+            //let newIndexPath = NSIndexPath(forRow: realm.objects(Activity).count, inSection: 0)
+            //meals.append(meal)
+            //let activities = realm.objects(Activity)
+            //tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        }
 
     /*
     // Override to support rearranging the table view.
